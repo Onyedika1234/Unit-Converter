@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Convert with ease</title>
+    <link rel="stylesheet" href="unitconverter.css" />
+  </head>
+  <body>
+    <div class="converter">
+      <div class="input">
+        <h1>Unit converter</h1>
+        <input type="text" placeholder="Input your value" id="userInput" />
+        <select name="" id="unit1">
+          <option value="cm">CM</option>
+          <option value="px">PX</option>
+        </select>
+      </div>
+      <h2>To</h2>
+      <select name="" id="unit2">
+        <option value="cm">CM</option>
+        <option value="px">PX</option>
+        <option value="em">EM</option>
+        <option value="rem">REM</option>
+      </select>
+      <button onclick="calculate()">Calculate</button>
+      <h2 id="result"></h2>
+    </div>
+    <script src="unitconverter.js"></script>
+  </body>
+</html>
