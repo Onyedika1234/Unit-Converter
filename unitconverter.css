@@ -1,89 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Convert unit test</title>
-  </head>
-  <body>
-    <input type="text" placeholder="Input your value" id="userInput" />
-    <select name="" id="unit1">
-      <option value="cm">CM</option>
-      <option value="px">PX</option>
-    </select>
-    <h2>To</h2>
-    <select name="" id="unit2">
-      <option value="cm">CM</option>
-      <option value="px">PX</option>
-      <option value="em">EM</option>
-      <option value="rem">REM</option>
-    </select>
-    <br />
-    <button onclick="calculate()">Calculate</button>
-    <p></p>
-    <script>
-      function calculate() {
-        let userInput = document.getElementById("userInput");
-        let userValue = parseInt(userInput.value);
-        const unit1 = document.getElementById("unit1").value;
-        const unit2 = document.getElementById("unit2").value;
-        let para = document.querySelector("p");
-
-        let result;
-        const cmToPx = 37.7952755906;
-        const pixel = 0.0264583333;
-        // alert(userValue);
-        if (userInput.value == "") {
-          alert("You need to input a value");
-        } else if ((userInput.value = !"" && unit1 == "cm" && unit2 == "cm")) {
-          let statement = userValue + " cm";
-          // console.log(statement);
-          para.innerHTML = userValue + " => " + statement;
-          clearInput();
-        } else if (userInput.value != "" && unit1 == "cm" && unit2 == "px") {
-          result = Math.round(userValue * cmToPx);
-          let statement = result + " px";
-          console.log(statement);
-          clearInput();
-        } else if (userInput != "" && unit1 == "cm" && unit2 == "em") {
-          let defaultPx = parseInt(prompt("What is the defualt Value of em"));
-          result = Math.round((userValue * cmToPx) / defaultPx);
-          let statement = result + " em";
-          console.log(statement);
-          clearInput();
-        } else if (userInput != "" && unit1 == "cm" && unit2 == "rem") {
-          //   console.log("Hello");
-          let defaultPx = parseInt(prompt("Wht is the default value of rem"));
-          result = Math.round((userValue * cmToPx) / defaultPx);
-          let statement = result + " rem";
-          console.log(statement);
-          clearInput();
-        } else if (userInput.value != "" && unit1 == "px" && unit2 == "cm") {
-          result = Math.round(pixel * userValue);
-          let statement = result + " cm";
-          console.log(statement);
-          clearInput();
-        } else if (userInput.value != "" && unit1 == "px" && unit2 == "px") {
-          let statement = userValue + " px";
-          console.log(statement);
-          clearInput();
-        } else if (userInput != "" && unit1 == "px" && unit2 == "em") {
-          let defaultPx = parseInt(prompt("What is the defualt Value of em"));
-          result = Math.round((1 / defaultPx) * userValue);
-          let statement = result + " em";
-          console.log(statement);
-          clearInput();
-        } else if (userInput != "" && unit1 == "px" && unit2 == "rem") {
-          let defaultPx = parseInt(prompt("What is the defualt Value of em"));
-          result = Math.round((1 / defaultPx) * userValue);
-          let statement = result + " rem";
-          console.log(statement);
-          clearInput();
-        }
-      }
-      function clearInput() {
-        userInput.value = "";
-      }
-    </script>
-  </body>
-</html>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.converter {
+  width: 500px;
+  min-height: 200px;
+  border: 1px solid gray;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px gray;
+}
+h1 {
+  text-align: center;
+  padding: 10px;
+  display: block;
+}
+.input {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  position: relative;
+}
+.input input {
+  width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid black;
+}
+.input select {
+  position: absolute;
+  right: 110px;
+  bottom: 10px;
+  outline: none;
+  border: none;
+  background: transparent;
+}
+h2 {
+  text-align: center;
+  margin: 10px 0;
+}
+#unit2 {
+  display: block;
+  text-align: center;
+  width: 20%;
+  margin: auto;
+  padding: 10px;
+}
+button {
+  width: 120px;
+  padding: 10px;
+  border: none;
+  display: block;
+  margin: 20px auto;
+  cursor: pointer;
+  background: blue;
+  color: white;
+  border-radius: 10px;
+}
+#result {
+  color: green;
+}
+@media screen and (min-width: 200px) and (max-width: 766px) {
+  .converter {
+    width: 90%;
+  }
+  .input input {
+    width: 90%;
+  }
+  .input select {
+    right: 10%;
+  }
+  #unit2 {
+    width: 40%;
+    border: 1px solid black;
+  }
+}
